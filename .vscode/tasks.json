@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build All Formats",
+			"type": "shell",
+			"command": "quarto",
+			"args": [
+				"render",
+				"presentation.qmd"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Beamer PDF",
+			"type": "shell",
+			"command": "quarto",
+			"args": [
+				"render",
+				"presentation.qmd",
+				"--to",
+				"presentation-beamer"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build RevealJS HTML",
+			"type": "shell",
+			"command": "quarto",
+			"args": [
+				"render",
+				"presentation.qmd",
+				"--to",
+				"presentation-revealjs"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

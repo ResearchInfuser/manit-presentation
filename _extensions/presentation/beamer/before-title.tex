@@ -1,0 +1,97 @@
+\usetheme{Manit}
+
+$if(scholar-number)$
+\providecommand{\insertscholarnumber}{$scholar-number$}
+$else$
+\providecommand{\insertscholarnumber}{}
+$endif$
+
+$if(supervisor)$
+\providecommand{\insertsupervisor}{$supervisor$}
+$else$
+\providecommand{\insertsupervisor}{}
+$endif$
+
+$if(co-supervisor)$
+\providecommand{\insertcosupervisor}{$co-supervisor$}
+$else$
+\providecommand{\insertcosupervisor}{}
+$endif$
+
+
+$if(department)$
+\providecommand{\insertdepartment}{$department$}
+$else$
+\providecommand{\insertdepartment}{}
+$endif$
+
+
+$if(institute)$
+\providecommand{\insertinstitute}{$institute$}
+$else$
+\providecommand{\insertinstitute}{}
+$endif$
+
+
+% Manit title page
+% One can alter the font size by setting eg 'titlefontsize: 20pt' in the YAML header
+\setbeamerfont{title}{series=\bfseries,parent=structure,size=\fontsize{$if(titlefontsize)$$titlefontsize$$else$22$endif$}{16}}
+
+% \setbeamertemplate{title page}
+% {\placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{$titlegraphic$}
+% \begin{textblock}{8.7}(1,2.8)\usebeamerfont{title}
+% {\color{$titlecolor$}\raggedright\par\inserttitle}
+% \end{textblock}
+% \begin{textblock}{8.7}(1,6.8)
+% {\color{$titlecolor$}\raggedright{\insertauthor}\mbox{}\\[0.2cm]
+% \insertdate}
+% \end{textblock}}
+
+\setbeamertemplate{title page}{
+  % Optional full background image
+  \placefig{-0.01}{-0.01}{width=1.01\paperwidth,height=1.01\paperheight}{$titlegraphic$}
+
+  \vspace*{0.2mm}
+  \begin{center}
+
+    % Presentation Type / Seminar Type
+    {\usebeamerfont{subtitle}\color{$titlecolor$}\large\insertsubtitle\par}
+    \vspace{0.15mm}
+
+    % Title
+    {\usebeamerfont{title}\color{$titlecolor$}\bfseries\Large\inserttitle\par}
+    \vspace{0.15mm}
+
+    % Scholar Name and Scholar Number
+    {\color{$titlecolor$}\small
+      \textbf{Presented by:} \insertauthor\\
+      \textbf{Scholar No.:} \insertscholarnumber\par}
+    \vspace{0.2mm}
+
+    % Supervisor Information
+    {\color{$titlecolor$}\small
+      \textbf{Under the Guidance of:}\\
+      \insertsupervisor\\
+      \insertcosupervisor\par}
+    \vspace{0.2mm}
+
+    % Department and Institute
+    {\color{$titlecolor$}\small\insertdepartment\par}
+    {\color{$titlecolor$}\small\insertinstitute\par}
+
+    % Date
+    {\color{$titlecolor$}\small\insertdate\par}
+    \vspace{0.2mm}
+
+  \end{center}
+
+  \vfill
+}
+
+% Find images
+\graphicspath{{_extensions/presentation/_images/background/}{figs/}{figures/}{images/}{img/}}
+
+% Fix longtable undefined theHtable issue
+\ifdefined\theHtable\else
+  \newcommand{\theHtable}{\thetable}
+\fi

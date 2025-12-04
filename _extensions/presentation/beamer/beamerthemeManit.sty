@@ -1,0 +1,190 @@
+%% This is the Manit beamer theme
+%% Created for Department of Mathematics, Bioinformatics and Computer Applications
+%% Updated by Prashant Kumar Nag, on  29 May 2024 for use with quarto
+
+% Use Metropolis theme with proper configuration
+\usetheme[progressbar=foot,block=fill,background=light]{metropolis}
+
+% Metropolis theme options
+\metroset{
+  progressbar=foot,        % Show progress bar in footer
+  numbering=fraction,      % Show slide numbers as fraction
+  sectionpage=progressbar, % Section page with progress bar
+  subsectionpage=none,     % No subsection pages
+  block=fill,              % Fill blocks with background color
+  background=light         % Light background (default Metropolis)
+}
+
+% Fonts
+\ifPDFTeX
+  \usepackage[scaled=0.85]{sourcecodepro}
+  \usepackage[sfdefault,lf]{FiraSans}
+  \usepackage{etoolbox}
+  \patchcmd{\@verbatim}
+    {\verbatim@font}
+    {\verbatim@font\fontsize{10}{10}\tt}
+    {}{}
+\else % if luatex or xetex
+  \usepackage[fira]{fontsetup}
+  \setmonofont[Scale=0.85]{SourceCodePro-Regular.otf}
+  \def\verbatim@font{\fontsize{10}{10}\tt}%
+\fi
+\usepackage{mathrsfs}
+
+%% Metropolis Default Colors (mDarkTeal and mLightBrown)
+% Define MANIT custom colors to override Metropolis defaults
+\definecolor{DarkGrey}{RGB}{100,100,100}
+\definecolor{DarkYellow}{RGB}{230, 172, 0}
+\definecolor{grey}{RGB}{191,191,191}
+\definecolor{LightGrey}{RGB}{231,231,231}
+\definecolor{ManitBlue}{HTML}{1969AA}
+\definecolor{Orange}{RGB}{204, 89, 0}
+\definecolor{shadecolor}{RGB}{225,225,225}
+
+%% Text colors
+\setbeamercolor{normal text}{fg=black,bg=black!2}
+\setbeamercolor{alerted text}{fg=Orange}
+\setbeamercolor{example text}{fg=DarkGrey}
+
+%% Frame elements - Metropolis dark teal background
+\setbeamercolor{frametitle}{bg=mDarkTeal, fg=white}
+\setbeamercolor{framesubtitle}{fg=mDarkTeal!70!black}
+
+%% Title page colors
+\setbeamercolor{title}{fg=white,bg=ManitBlue}
+\setbeamercolor{subtitle}{fg=DarkGrey}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=DarkGrey}
+\setbeamercolor{date}{fg=DarkGrey}
+
+%% Structure colors
+\setbeamercolor{structure}{fg=ManitBlue}
+\setbeamercolor{section}{fg=ManitBlue}
+\setbeamercolor{subsection}{fg=ManitBlue}
+
+%% TOC colors
+\setbeamercolor{section in toc}{fg=Orange}
+\setbeamercolor{section in toc shaded}{fg=DarkYellow}
+\setbeamercolor{subsection in toc}{fg=ManitBlue}
+\setbeamercolor{subsection in toc shaded}{fg=DarkGrey!50}
+\setbeamercolor{section number projected}{bg=Orange,fg=white}
+\setbeamercolor{subsection number projected}{bg=ManitBlue,fg=white}
+
+%% List colors
+\setbeamercolor{itemize item}{fg=Orange}
+\setbeamercolor{itemize subitem}{fg=Orange!50!yellow}
+\setbeamercolor{itemize subsubitem}{fg=DarkGrey}
+\setbeamercolor{itemize}{fg=black}
+\setbeamercolor{enumerate item}{fg=Orange,bg=white}
+\setbeamercolor{enumerate subitem}{fg=Orange!50!yellow,bg=DarkGrey}
+\setbeamercolor{enumerate subsubitem}{fg=DarkGrey}
+\setbeamercolor{description item}{fg=Orange}
+
+%% Block colors
+\setbeamercolor{block title}{fg=white,bg=ManitBlue}
+\setbeamercolor{block body}{fg=black,bg=black!15!white}
+\setbeamercolor{block title alerted}{fg=white,bg=Orange}
+\setbeamercolor{block body alerted}{fg=black,bg=DarkYellow}
+\setbeamercolor{block title example}{fg=white,bg=DarkGrey}
+\setbeamercolor{block body example}{fg=black,bg=LightGrey}
+
+%% Progress bar
+\setbeamercolor{progress bar}{fg=Orange,bg=LightGrey}
+\setbeamercolor{progress bar in head/foot}{fg=Orange,bg=LightGrey}
+\setbeamercolor{progress bar in section page}{fg=Orange,bg=LightGrey}
+
+%% Footnote colors
+\setbeamercolor{footnote}{fg=DarkGrey}
+\setbeamercolor{footnote mark}{fg=Orange}
+
+%% Caption colors
+\setbeamercolor{caption name}{fg=ManitBlue}
+\setbeamercolor{caption}{fg=DarkGrey}
+
+%% Bibliography colors
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=ManitBlue}
+\setbeamercolor{bibliography entry location}{fg=DarkGrey}
+\setbeamercolor{bibliography entry note}{fg=DarkGrey}
+
+%% Button colors (for navigation)
+\setbeamercolor{button}{fg=white,bg=ManitBlue}
+\setbeamercolor{button border}{fg=ManitBlue}
+
+%% Separation line colors
+\setbeamercolor{separation line}{fg=Orange}
+\setbeamercolor{upper separation line head}{fg=Orange}
+\setbeamercolor{middle separation line head}{fg=Orange}
+\setbeamercolor{lower separation line head}{fg=Orange}
+
+\usebeamercolor[fg]{normal text}
+
+% Lets make descriptions and alerts bold (Metropolis style)
+\setbeamerfont{description item}{series=\bfseries}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+% Use Metropolis default templates (bullets, enumerate)
+
+% Absolute figure placement
+\RequirePackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\def\placefig#1#2#3#4{\begin{textblock}{.1}(#1,#2)\rlap{\includegraphics[#3]{#4}}\end{textblock}}
+\def\full#1{\vspace*{-0.06cm}\centerline{\includegraphics[width=16cm,height=8.8cm,keepaspectratio=true]{#1}}}
+\def\fullwidth#1{\vspace*{-0.06cm}\centerline{\includegraphics[width=16cm,height=20cm,keepaspectratio=true]{#1}}}
+\def\fullheight#1{\vspace*{-0.06cm}\centerline{\includegraphics[width=20cm,height=8.8cm,keepaspectratio=true]{#1}}}
+
+% Tighter table of contents with numbering (keep compact for long TOCs)
+\usepackage{etoolbox}
+\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{-20\p@}}}{}{}
+\setbeamertemplate{section in toc}[square]
+\setbeamerfont{section number projected}{size=\large}
+\setbeamertemplate{section in toc shaded}[default][50]
+
+% Redefine shaded environment if it exists (for R plots)
+\ifcsname Shaded\endcsname
+  \definecolor{shadecolor}{RGB}{225,225,225}
+  \renewenvironment{Shaded}{\color{mDarkTeal!90!black}\fontsize{10}{10}\sf\begin{snugshade}\color{mDarkTeal!90!black}}{\end{snugshade}}
+\fi
+
+% Metropolis uses its own footline with progress bar - don't override
+
+% Set title font size using Quarto YAML variable
+\setbeamerfont{title}{series=\bfseries,parent=structure,size=\fontsize{$if(titlefontsize)$$titlefontsize$$else$22$endif$}{16}}
+
+% Support for footnotes and asides in beamer
+% Style for footnotes
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{footnote mark}{size=\tiny}
+
+% Reduce vertical spacing before footnotes
+\addtobeamertemplate{footnote}{\vspace{-6pt}\advance\hsize-0.5cm}{\vspace{6pt}}
+\renewcommand*{\footnoterule}{\kern -3pt \hrule \@width 2in \kern 8pt}
+
+% Font size control - can be set via YAML
+% Users can set: fontsize: 10pt, 11pt, or 12pt (default)
+% For individual slides, use {.smaller} or {.scrollable}
+
+% Reduce diagram sizes for better fit
+% Override default figure width for mermaid and other diagrams
+\setkeys{Gin}{width=0.85\textwidth,height=0.75\textheight,keepaspectratio}
+
+\beamertemplatenavigationsymbolsempty
+
+% Add logo to header, right-aligned with slide numbers
+\addtobeamertemplate{frametitle}{}{%
+  \begin{textblock*}{2cm}(\paperwidth-2.5cm,0.2cm)
+    \raggedleft
+    \includegraphics[height=0.8cm]{_extensions/presentation/_images/logo/manit_logo.png}
+  \end{textblock*}
+}
+
+% Reduce font size for bibliography
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
+
+

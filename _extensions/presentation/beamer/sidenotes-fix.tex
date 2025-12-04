@@ -1,0 +1,4 @@
+% Define figure* and table* environments before sidenotes package loads
+% This prevents the "Environment 'figure*' undefined" error
+\newenvironment{figure*}{\begin{figure}}{\end{figure}}
+\newenvironment{table*}{\begin{table}}{\end{table}}

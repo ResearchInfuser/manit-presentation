@@ -1,0 +1,602 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700,400italic,700italic);
+
+// Color palette
+$metropolis-dark-teal: #23373b;  // Primary text color
+$manit-blue: #1969AA;            // MANIT primary
+$manit-orange: #CC5900;          // MANIT accent/emphasis
+
+// Derived colors for text
+$metro-dark: rgba($metropolis-dark-teal, 0.9);
+$metro-medium: rgba($metropolis-dark-teal, 0.7);
+$metro-light: rgba($metropolis-dark-teal, 0.1);
+
+// Quarto RevealJS Default Variables (from quarto.scss)
+// fonts
+$font-family-sans-serif: "Fira Sans", Helvetica, sans-serif !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$presentation-font-size-root: 32px !default;
+$presentation-font-smaller: 0.7 !default;
+$presentation-line-height: 1.3 !default;
+
+// main colors - using Metropolis colors
+$body-bg: #ffffff !default;
+$body-color: $metropolis-dark-teal !default;
+$link-color: $manit-blue !default;
+$selection-bg: rgba(0, 0, 0, 0.99) !default;
+
+// headings
+$presentation-heading-font: $font-family-sans-serif !default;
+$presentation-heading-color: $manit-blue !default;
+$presentation-heading-line-height: 1.2 !default;
+$presentation-heading-letter-spacing: normal !default;
+$presentation-heading-text-transform: none !default;
+$presentation-heading-text-shadow: none !default;
+$presentation-h1-text-shadow: none !default;
+$presentation-heading-font-weight: 600 !default;
+$presentation-h1-font-size: 2.5em !default;
+$presentation-h2-font-size: 1.6em !default;
+$presentation-h3-font-size: 1.3em !default;
+$presentation-h4-font-size: 1em !default;
+
+// margins
+$presentation-block-margin: 12px !default;
+
+// text alignment
+$presentation-slide-text-align: left !default;
+$presentation-title-slide-text-align: center !default;
+
+// title slide customization
+$manit-title-slide-font-size: 1.5em !default;
+$manit-subtitle-font-size: 1.2em !default;
+$manit-meta-font-size: 1.2em !default;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+// Quarto RevealJS title structure
+.quarto-title-block {
+  text-align: $presentation-title-slide-text-align;
+
+  .title {
+    font-size: 2.2em;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: $metropolis-dark-teal;
+  }
+
+  .subtitle {
+    font-size: 1.4em;
+    font-weight: 300;
+    color: $metro-medium;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid $manit-orange;
+    padding-bottom: 0.5em;
+    display: inline-block;
+  }
+
+  .institute,
+  .quarto-title-affiliation {
+    font-size: 1em;
+    color: $metro-medium;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+  }
+
+  .quarto-title-author-email {
+    font-size: 0.9em;
+    color: $metro-light;
+    margin-bottom: 1rem;
+  }
+
+  .author,
+  .quarto-title-author-name {
+    color: $body-color;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+
+  .quarto-title-authors {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+
+    .quarto-title-author {
+      padding-left: 0em;
+      padding-right: 0em;
+      width: 100%;
+    }
+  }
+}
+
+// Layout of title slide text
+#title-slide-text {
+  float: center;
+  width: 100%;
+  margin-top: 5%;
+}
+
+// Hide logo on title slide
+#title-slide .slide-logo {
+  display: none !important;
+}
+
+// Optional scholar number (custom field)
+.title-slide p.scholar-number {
+  font-size: 1em;
+  margin-top: 0.5em;
+  color: $metro-medium;
+  font-weight: 300;
+}
+
+.title-slide p.department,
+.title-slide p.institute {
+  font-size: 1em;
+  margin-top: 0.3em;
+  color: $metro-medium;
+  font-weight: 300;
+}
+
+.title-slide p.supervisor,
+.title-slide p.co-supervisor {
+  font-size: 1em;
+  margin-top: 0.3em;
+  color: $metro-dark;
+  font-weight: 400;
+}
+
+.title-slide p.author-email {
+  font-size: 0.9em;
+  margin-top: 0.3em;
+}
+
+.title-slide p.author-email a {
+  color: $manit-blue;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.title-slide p.author-email a:hover {
+  color: $manit-orange;
+  text-decoration: underline;
+}
+
+
+.cell-output-stdout pre code {
+  background-color: #E8E8E8;
+}
+
+code span {
+  color: #007BA5;
+}
+
+// Style for section headers (h2)
+// Only apply to content slides, not title-slide sections
+.reveal section:not(.title-slide) h2 {
+  color: $metropolis-dark-teal;
+  font-size: $presentation-h2-font-size !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  text-align: left !important;
+  line-height: 1.2 !important;
+  margin-bottom: 1em !important;
+}
+
+// Style for h2 on title-slide sections (when slide-level: 3)
+.reveal section.title-slide h2 {
+  color: $metropolis-dark-teal;
+  background-color: transparent;
+  padding: 0;
+  font-weight: 300;
+  font-size: 2em;
+}
+
+// Style for section dividers (h1) - Metropolis dark teal
+.reveal h1 {
+  color: $metropolis-dark-teal;
+  font-weight: 300;
+  font-size: 2.5em;
+}
+
+// Style for h3 headings
+.reveal h3 {
+  color: $metro-medium;
+  font-size: $presentation-h3-font-size;
+  font-weight: 300;
+}
+
+// Alert text (emphasis) - MANIT orange
+.reveal .alert,
+.reveal em {
+  color: $manit-orange;
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Frame subtitle
+.reveal .subtitle {
+  color: $metro-medium;
+  font-style: italic;
+}
+
+// Progress bar - Metropolis style with MANIT orange
+.reveal .progress {
+  background: rgba($manit-orange, 0.2);
+  color: $manit-orange;
+  height: 3px;
+}
+
+.reveal .progress span {
+  background: $manit-orange;
+}
+
+// List styling with Metropolis colors
+.reveal ul,
+.reveal ol {
+  color: $metro-dark;
+}
+
+.reveal ul li::marker {
+  color: $manit-orange;
+  font-weight: bold;
+}
+
+.reveal ol li::marker {
+  color: $manit-orange;
+  font-weight: bold;
+}
+
+// Nested list colors - lighter shades
+.reveal ul ul li::marker,
+.reveal ol ol li::marker {
+  color: rgba($manit-orange, 0.7);
+}
+
+.reveal ul ul ul li::marker,
+.reveal ol ol ol li::marker {
+  color: $metro-medium;
+}
+
+// Table of Contents (Outline) styling - numbered like Beamer
+#toc ul {
+  list-style: none;
+  counter-reset: toc-section;
+  padding-left: 0;
+}
+
+#toc > ul > li {
+  counter-increment: toc-section;
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 0.5em;
+}
+
+#toc > ul > li::before {
+  content: counter(toc-section) ".";
+  color: $manit-blue;
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+#toc > ul > li::marker {
+  content: none;
+}
+
+// Block styles - Metropolis inspired
+.reveal .block {
+  background: $metro-light;
+  border-left: 5px solid $manit-blue;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.reveal .alert-block {
+  background: rgba($manit-orange, 0.1);
+  border-left: 5px solid $manit-orange;
+}
+
+.reveal .example-block {
+  background: rgba($metropolis-dark-teal, 0.05);
+  border-left: 5px solid $metro-medium;
+}
+
+// Caption colors - Metropolis style
+.reveal figcaption {
+  color: $metro-medium;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+// Footnote styling
+.reveal .footnote {
+  color: $metro-medium;
+  font-size: 0.6em;
+}
+
+.reveal .footnote::before {
+  color: $manit-orange;
+}
+
+// Aside/sidenote styling
+.reveal aside {
+  color: $metro-medium;
+  font-size: 0.7em;
+  border-left: 3px solid $manit-orange;
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+// Button/navigation colors - Metropolis style
+.reveal .controls {
+  color: $manit-blue;
+}
+
+.reveal .controls:hover {
+  color: $manit-orange;
+}
+
+.reveal .slide-number {
+  color: $metro-medium;
+  background-color: transparent;
+  font-size: 0.8em;
+  bottom: 12px !important;
+  right: 12px !important;
+  top: auto !important;
+}
+
+// Speaker notes indicator
+.reveal.has-notes .slide-number {
+  background-color: $manit-orange;
+  color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+// Adjust slides container - no padding
+.reveal .slides {
+  padding-top: 0;
+}
+
+// Remove top padding from sections
+.reveal .slides > section {
+  padding-top: 0 !important;
+}
+
+// Position logo in top-right corner
+.reveal .slide-logo {
+  position: fixed !important;
+  top: 0.5em !important;
+  right: 1em !important;
+  max-height: 100px !important;
+  height: 100px !important;
+  width: auto !important;
+  z-index: 100 !important;
+}
+
+div.sourceCode {
+  background-color: #181818;
+  color: #eaeaea;
+}
+
+div.sourceCode pre code {
+  background-color: #181818;
+  color: #eaeaea;
+}
+
+code span.at {
+  color: #7aa6da;
+}
+
+code span.ot {
+  color: #007BA5;
+}
+
+code span.ss {
+  color: #20794D;
+}
+
+code span.an {
+  color: #5E5E5E;
+}
+
+code span.fu {
+  color: #c397d8;
+}
+
+code span.st {
+  color: #b9ca4a;
+}
+
+code span.cf {
+  color: #007BA5;
+}
+
+code span.op {
+  color: #5E5E5E;
+}
+
+code span.er {
+  color: #AD0000;
+}
+
+code span.bn {
+  color: #AD0000;
+}
+
+code span.al {
+  color: #AD0000;
+}
+
+code span.va {
+  color: #111111;
+}
+
+code span.pp {
+  color: #AD0000;
+}
+
+code span.in {
+  color: #5E5E5E;
+}
+
+code span.vs {
+  color: #20794D;
+}
+
+code span.wa {
+  color: #5E5E5E;
+  font-style: italic;
+}
+
+code span.do {
+  color: #5E5E5E;
+  font-style: italic;
+}
+
+code span.ch {
+  color: #20794D;
+}
+
+code span.dt {
+  color: #AD0000;
+}
+
+code span.fl {
+  color: #AD0000;
+}
+
+code span.co {
+  color: #5E5E5E;
+}
+
+code span.cv {
+  color: #5E5E5E;
+  font-style: italic;
+}
+
+code span.cn {
+  color: #8f5902;
+}
+
+code span.sc {
+  color: #e78c45;
+}
+
+code span.dv {
+  color: #d54e53;
+}
+
+code span.kw {
+  color: #007BA5;
+}
+
+/****
+
+PRIMARY PALETTE
+
+manit Blue is our most identifiable colour. It conveys youthfulness, possibility and openness. It should always be considered first.
+
+Black conveys prestige, timelessness and sophistication.
+
+White is often shown as white space and conveys the brand personality of being open and youthful.
+
+Greys can be any percentage of black and provides additional flexibility to our primary colour palette.
+
+The primary colour palette is preferred for digital work.
+
+****/
+
+.manit-bg-blue { background-color: #006DAE!important; }
+.manit-bg-gray80 { background-color: #5A5A5A!important; }
+.manit-bg-gray50 { background-color: #969696!important; }
+.manit-bg-gray10 { background-color: #E6E6E6!important; }
+.manit-bg-white { background-color: #FFFFFF!important; }
+.manit-bg-black { background-color: #000000!important; }
+
+.manit-blue, .manit-blue code, .manit-blue a { color: #006DAE!important; }
+.manit-black, .manit-black code, .manit-black a { color: #000000!important; }
+.manit-white, .manit-white code, .manit-white a { color: #FFFFFF!important; }
+.manit-gray80, .manit-gray80 code, .manit-gray80 a { color: #5A5A5A!important; }
+.manit-gray50, .manit-gray50 code, .manit-gray50 a { color: #969696!important; }
+.manit-gray10, .manit-gray10 code, .manit-gray10 a { color: #E6E6E6!important; }
+
+.manit-border-blue { border-color: #006DAE!important; }
+.manit-border-black { border-color: #000000!important; }
+.manit-border-white { border-color: #FFFFFF!important; }
+.manit-border-gray80 { border-color: #5A5A5A!important; }
+.manit-border-gray50 { border-color: #969696!important; }
+.manit-border-gray10 { border-color: #E6E6E6!important; }
+
+/****
+
+SECONDARY PALETTE
+
+Inspired by the colours of our academic robes, we have a range of bright, colourful secondary colours.
+
+Secondary colours are to be used:
+
+* in charts and diagrams to highlight key findings
+* as headings and subheadings
+* sparingly to provide highlights or accents – ideally one or two secondary colours per double page spread
+* to speak to a particular audience group. For instance, colours that would resonate best with our prospective undergraduate audience would be colourful, bright and youthful. Industry and research would suit a more corporate/mature choice to reflect focus and prestige.
+
+****/
+
+
+.manit-bg-blue2 { background-color: #027EB6!important; }
+.manit-bg-purple2 { background-color: #746FB2!important; }
+.manit-bg-fuchsia2 { background-color: #9651A0!important; }
+.manit-bg-ruby2 { background-color: #C8008F!important; }
+.manit-bg-pink2 { background-color: #ee64a4!important; }
+.manit-bg-red2 { background-color: #EE0220!important; }
+.manit-bg-orange2 { background-color: #D93F00!important; }
+.manit-bg-umber2 { background-color: #795549!important; }
+.manit-bg-olive2 { background-color: #6F7C4D!important; }
+.manit-bg-green2 { background-color: #008A25!important; }
+
+.manit-border-blue2 { border-color: #027EB6!important; }
+.manit-border-purple2 { border-color: #746FB2!important; }
+.manit-border-fuchsia2 { border-color: #9651A0!important; }
+.manit-border-ruby2 { border-color: #C8008F!important; }
+.manit-border-pink2 { border-color: #ee64a4!important; }
+.manit-border-red2 { border-color: #EE0220!important; }
+.manit-border-orange2 { border-color: #D93F00!important; }
+.manit-border-umber2 { border-color: #795549!important; }
+.manit-border-olive2 { border-color: #6F7C4D!important; }
+.manit-border-green2 { border-color: #008A25!important; }
+
+.manit-blue2, .manit-blue2 code, .manit-blue2 a { color: #027EB6!important; }
+.manit-purple2, .manit-purple2 code, .manit-purple2 a { color: #746FB2!important; }
+.manit-fuchsia2, .manit-fuchsia2 code, .manit-fuchsia2 a { color: #9651A0!important; }
+.manit-ruby2, .manit-ruby2 code, .manit-ruby2 a { color: #C8008F!important; }
+.manit-pink2, .manit-pink2 code, .manit-pink2 a { color: #ee64a4!important; }
+.manit-red2, .manit-red2 code, .manit-red2 a { color: #EE0220!important; }
+.manit-orange2, .manit-orange2 code, .manit-orange2 a { color: #D93F00!important; }
+.manit-umber2, .manit-umber2 code, .manit-umber2 a { color: #795549!important; }
+.manit-olive2, .manit-olive2 code, .manit-olive2 a { color: #6F7C4D!important; }
+.manit-green2, .manit-green2 code, .manit-green2 a { color: #008A25!important; }
+
+/* Title slide only */
+.reveal .title-slide h1 {
+  font-size: var(--manit-title-font, 2.8em); // fallback if not set
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* References section styling */
+#refs {
+  font-size: 0.7em;
+  line-height: 1.4;
+}
+
+#refs div {
+  margin-bottom: 0.8em;
+}

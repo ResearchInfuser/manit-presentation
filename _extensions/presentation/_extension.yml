@@ -1,0 +1,44 @@
+title: Presentation
+author: Prashant Kumar Nag
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    beamer:
+      aspectratio: 169
+      fontsize: 11pt
+      section-titles: false
+      pdf-engine: xelatex
+      fig-width: 8
+      fig-height: 4
+      titlegraphic: blank.png
+      titlecolor: black
+      classoption: [ignorenonframetext]
+      include-in-header:
+        - beamer/sidenotes-fix.tex
+      template-partials:
+        - beamer/before-title.tex
+        - beamer/toc.tex
+      format-resources:
+        - beamer/beamerthemeManit.sty
+        - beamer/sidenotes-fix.tex
+    
+    revealjs:
+      toc: true
+      toc-depth: 1
+      toc-title: Outline
+      date-format: "D MMMM YYYY"
+      slide-number: true
+      show-slide-number: all
+      menu:
+        side: left
+        width: normal
+      title-slide-attributes:
+        data-background-image: "_images/background/blank.png"
+        data-background-size: "stretch"
+        data-background-position: "center"
+      theme: [default, revealjs/manit.scss]
+      logo: _images/logo/manit_logo.png
+      html-math-method: katex
+      template-partials:
+        - revealjs/title-slide.html
